@@ -15,7 +15,7 @@ import { NavBar } from './sharedComponents/navBar'
 //
 //
 
-function App () {
+function Routes () {
   return (
     <Router>
       <Suspense fallback={<h1>Loading...</h1>}>
@@ -29,4 +29,4 @@ function App () {
   )
 }
 
-export default App
+export default Routes
