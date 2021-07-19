@@ -15,7 +15,7 @@ import { NavBar } from './sharedComponents/navBar'
 //
 //
 
-function Routes () {
+const Routes = () => {
   return (
     <Router>
       <Suspense fallback={<h1>Loading...</h1>}>
