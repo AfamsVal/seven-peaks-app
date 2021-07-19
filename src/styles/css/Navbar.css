@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  height: 126px;
+  justify-content: space-between;
+  background-color: #09357b;
+  align-items: center;
+  padding-left: 12%;
+  padding-right: 12%;
+}
+.nav__logo {
+  width: 130px;
+}
+.nav__logo__img {
+  width: 100%;
+}
+.nav__menu {
+  align-self: flex-end;
+}

@@ -1,0 +1,32 @@
+@mixin button($size, $tx-color, $bg, $display, $border-raduis) {
+  background-color: $bg;
+  border: none;
+  @if $size == lg {
+    padding: 20px 44px;
+    font-size: 18px;
+  } @else if $size == md {
+    padding: 15px 32px;
+    font-size: 16px;
+  } @else if $size == sm {
+    padding: 1px 15px;
+    font-size: 12px;
+  }
+  color: $tx-color;
+  text-align: center;
+  text-decoration: none;
+  display: $display;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: $border-raduis;
+}
+
+@mixin container($size, $bg, $m-y, $m-x, $direction) {
+  display: flex;
+  flex-direction: $direction;
+  background-color: $bg;
+  @if $size == container {
+    margin: $m-y 12%;
+  } @else if $size == container-fluid {
+    margin: $m-y $m-x;
+  }
+}

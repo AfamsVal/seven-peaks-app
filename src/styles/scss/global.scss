@@ -1,0 +1,91 @@
+@import './includes/variables.scss';
+@import './includes/mixin.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $bg-white;
+}
+
+/////////////////
+
+.g-search-bar {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgba($color: #ffffff, $alpha: 0.4);
+
+  ::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+    color: $text-white;
+    &:focus {
+      color: yellow;
+      outline: none;
+    }
+  }
+
+  &__icon {
+    padding-top: 8px;
+    padding-right: 6px;
+  }
+}
+
+.g-container {
+  @include container(container, $bg-white, 40px, 0, column);
+
+  &__box {
+    @include container(container-fluid, $bg-white, 0px, 0, row);
+
+    &__first_article-l {
+      height: 60px;
+      flex: 5;
+    }
+
+    &__first_article-r {
+      height: 60px;
+      flex: 3;
+
+      &--btn {
+        @include button(sm, $text-white, $bg-primary, inline-block, 5px);
+        display: flex;
+        align-items: center;
+      }
+
+      &--select {
+        display: flex;
+        width: 150px;
+        outline: none;
+        border: none;
+        padding: 6px 4px;
+        border-bottom: 2px solid $text-black;
+        background: transparent;
+      }
+    }
+
+    &--left-title {
+      font-weight: 700;
+      font-size: 38px;
+      display: flex;
+      align-items: center;
+    }
+
+    &--right-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &__second_article {
+      height: 200px;
+      flex: 1;
+      background-color: rgb(190, 143, 235);
+      margin-top: 30px;
+    }
+  }
+}
