@@ -7,8 +7,8 @@
   justify-content: space-between;
   background-color: $bg-primary;
   align-items: center;
-  padding-left: 12%;
-  padding-right: 12%;
+  padding-left: 8%;
+  padding-right: 8%;
 
   &__logo {
     width: 130px;
@@ -19,5 +19,13 @@
 
   &__menu {
     align-self: flex-end;
+    border-bottom: 2px solid $bg-white;
+    cursor: pointer;
+  }
+
+  &__menu-active {
+    align-self: flex-end;
+    border-bottom: 2px solid $bg-white;
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
   }
 }

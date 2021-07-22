@@ -1,0 +1,38 @@
+.bookmark {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(350px, auto);
+  grid-gap: 1em;
+  margin: 0 8%;
+}
+.bookmark .bookmark-l,
+.bookmark .bookmark-r {
+  background-color: #09357b;
+}
+
+@media screen and (max-width: 992px) {
+  .bookmark {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(350px, auto);
+    grid-gap: 1em;
+    margin: 0 8%;
+  }
+  .bookmark .bookmark-l,
+.bookmark .bookmark-r {
+    background-color: #09357b;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bookmark {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(350px, auto);
+    grid-gap: 1em;
+    margin: 0 8%;
+  }
+  .bookmark .bookmark-l,
+.bookmark .bookmark-r {
+    background-color: #09357b;
+  }
+}

@@ -48,7 +48,7 @@ SvgIcon.propTypes = {
   fillColor: PropTypes.string,
   fontSize: PropTypes.string,
   viewBox: PropTypes.string,
-  children: PropTypes.ReactNode,
+  children: PropTypes.array,
   height: PropTypes.string,
   width: PropTypes.string,
   style: PropTypes.object,

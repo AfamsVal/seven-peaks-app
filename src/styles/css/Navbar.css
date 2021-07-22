@@ -5,8 +5,8 @@
   justify-content: space-between;
   background-color: #09357b;
   align-items: center;
-  padding-left: 12%;
-  padding-right: 12%;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 .nav__logo {
   width: 130px;
@@ -16,4 +16,11 @@
 }
 .nav__menu {
   align-self: flex-end;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+.nav__menu-active {
+  align-self: flex-end;
+  border-bottom: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.4);
 }

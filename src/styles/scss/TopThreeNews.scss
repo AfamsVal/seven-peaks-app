@@ -1,0 +1,45 @@
+@import './includes/variables.scss';
+@import './includes/mixin.scss';
+
+.top-three-news {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(350px, auto);
+  grid-gap: 1em;
+  margin: 0 8% 20px;
+
+  .top-three-news-l,
+  .top-three-news-r {
+    background-color: $bg-primary;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .top-three-news {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(350px, auto);
+    grid-gap: 1em;
+    margin: 0 8%;
+
+    .top-three-news-l,
+    .top-three-news-r {
+      background-color: $bg-primary;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-three-news {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(350px, auto);
+    grid-gap: 1em;
+    margin: 0 8%;
+
+    .top-three-news-l,
+    .top-three-news-r {
+      background-color: $bg-primary;
+    }
+  }
+}

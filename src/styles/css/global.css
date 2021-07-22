@@ -8,7 +8,8 @@ body {
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
 .g-search-bar ::placeholder {
   color: white;
@@ -29,17 +30,41 @@ body {
   padding-right: 6px;
 }
 
+.footer {
+  background-color: #09357b;
+  height: 200px;
+}
+
 .g-container {
   display: flex;
   flex-direction: column;
   background-color: white;
-  margin: 40px 12%;
+  margin: 40px 0 40px 0;
+}
+.g-container--box {
+  padding: 0 2% 25px;
+}
+.g-container--min-box {
+  padding: 0 2% 0;
+}
+.g-container--box-2 {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.g-container--p-bottom-5 {
+  padding-bottom: 10px;
+}
+.g-container--p-bottom-10 {
+  padding-bottom: 20px;
+}
+.g-container--p-bottom-15 {
+  padding-bottom: 30px;
 }
 .g-container__box {
   display: flex;
   flex-direction: row;
   background-color: white;
-  margin: 0px 0;
+  margin: 0 6% 0 6%;
 }
 .g-container__box__first_article-l {
   height: 60px;
@@ -74,19 +99,159 @@ body {
   background: transparent;
 }
 .g-container__box--left-title {
-  font-weight: 700;
   font-size: 38px;
   display: flex;
   align-items: center;
+  font-weight: bold;
+  font-size: 3em;
 }
 .g-container__box--right-title {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.g-container__box__second_article {
-  height: 200px;
+.g-container__box--right-title-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.g-container__box__first_news-l {
+  height: 400px;
   flex: 1;
   background-color: #be8feb;
-  margin-top: 30px;
+  margin-right: 10px;
+}
+.g-container__box__first_news-r {
+  height: 400px;
+  flex: 1;
+  background-color: #be8feb;
+  margin-left: 10px;
+}
+.g-container__box__second_news {
+  height: 300px;
+  flex: 1;
+  padding: 3px;
+  margin: 1%;
+  background-color: #be8feb;
+}
+@media screen and (max-width: 992px) {
+  .g-container__box {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0 6% 0 6%;
+  }
+  .g-container__box__first_article-l {
+    height: 60px;
+    flex: 5;
+  }
+  .g-container__box__first_article-r {
+    height: 60px;
+    flex: 3;
+  }
+  .g-container__box__first_article-r--btn {
+    background-color: #09357b;
+    border: none;
+    padding: 1px 15px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .g-container__box__first_article-r--select {
+    display: flex;
+    width: 150px;
+    outline: none;
+    border: none;
+    padding: 6px 4px;
+    border-bottom: 2px solid black;
+    background: transparent;
+  }
+  .g-container__box--left-title {
+    font-size: 38px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 3em;
+  }
+  .g-container__box--right-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .g-container__box--right-title-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .g-container__box__first_news-l {
+    height: 400px;
+    flex: 1;
+    background-color: #be8feb;
+    margin-right: 10px;
+  }
+  .g-container__box__first_news-r {
+    height: 400px;
+    flex: 1;
+    background-color: #be8feb;
+    margin-left: 10px;
+  }
+  .g-container__box__second_news {
+    height: 300px;
+    flex: 1;
+    padding: 3px;
+    margin: 1%;
+    background-color: #be8feb;
+  }
+}
+
+.footer-msg-red {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  height: 45px;
+}
+
+.footer-msg-green {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #388e3c;
+  color: white;
+  text-align: center;
+  height: 45px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container img {
+  vertical-align: middle;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(9, 53, 120, 0.8);
+  /* Background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 96%;
+  padding: 0 2%;
+}
+
+.link-item {
+  color: white;
+  text-decoration: none;
 }

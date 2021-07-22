@@ -11,6 +11,7 @@
     padding: 1px 15px;
     font-size: 12px;
   }
+
   color: $tx-color;
   text-align: center;
   text-decoration: none;
@@ -20,13 +21,16 @@
   border-radius: $border-raduis;
 }
 
-@mixin container($size, $bg, $m-y, $m-x, $direction) {
+@mixin container(
+  $margin-top,
+  $margin-rignt,
+  $margin-bottom,
+  $margin-left,
+  $bg,
+  $direction
+) {
   display: flex;
   flex-direction: $direction;
   background-color: $bg;
-  @if $size == container {
-    margin: $m-y 12%;
-  } @else if $size == container-fluid {
-    margin: $m-y $m-x;
-  }
+  margin: $margin-top $margin-rignt $margin-bottom $margin-left;
 }

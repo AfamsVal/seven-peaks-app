@@ -13,7 +13,8 @@ body {
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: rgba($color: #ffffff, $alpha: 0.4);
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 
   ::placeholder {
     color: white;
@@ -24,6 +25,7 @@ body {
     background-color: transparent;
     border: none;
     color: $text-white;
+
     &:focus {
       color: yellow;
       outline: none;
@@ -36,11 +38,41 @@ body {
   }
 }
 
+.footer {
+  background-color: $bg-primary;
+  height: 200px;
+}
+
 .g-container {
-  @include container(container, $bg-white, 40px, 0, column);
+  //container($margin-top, $margin-rignt, $margin-bottom, $margin-left, $bg, $direction)
+  @include container(40px, 0, 40px, 0, $bg-white, column);
+
+  &--box {
+    padding: 0 2% 25px;
+  }
+
+  &--min-box {
+    padding: 0 2% 0;
+  }
+
+  &--box-2 {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  &--p-bottom-5 {
+    padding-bottom: 10px;
+  }
+
+  &--p-bottom-10 {
+    padding-bottom: 20px;
+  }
+  &--p-bottom-15 {
+    padding-bottom: 30px;
+  }
 
   &__box {
-    @include container(container-fluid, $bg-white, 0px, 0, row);
+    @include container(0, 6%, 0, 6%, $bg-white, row);
 
     &__first_article-l {
       height: 60px;
@@ -52,6 +84,7 @@ body {
       flex: 3;
 
       &--btn {
+        //button($size, $tx-color, $bg, $display, $border-raduis)
         @include button(sm, $text-white, $bg-primary, inline-block, 5px);
         display: flex;
         align-items: center;
@@ -69,10 +102,11 @@ body {
     }
 
     &--left-title {
-      font-weight: 700;
       font-size: 38px;
       display: flex;
       align-items: center;
+      font-weight: bold;
+      font-size: 3em;
     }
 
     &--right-title {
@@ -81,11 +115,154 @@ body {
       justify-content: space-around;
     }
 
-    &__second_article {
-      height: 200px;
+    &--right-title-end {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__first_news-l {
+      height: 400px;
       flex: 1;
       background-color: rgb(190, 143, 235);
-      margin-top: 30px;
+      margin-right: 10px;
+    }
+
+    &__first_news-r {
+      height: 400px;
+      flex: 1;
+      background-color: rgb(190, 143, 235);
+      margin-left: 10px;
+    }
+
+    &__second_news {
+      height: 300px;
+      flex: 1;
+      padding: 3px;
+      margin: 1%;
+      background-color: rgb(190, 143, 235);
     }
   }
+  @media screen and (max-width: 992px) {
+    &__box {
+      @include container(0, 6%, 0, 6%, $bg-white, column);
+
+      &__first_article-l {
+        height: 60px;
+        flex: 5;
+      }
+
+      &__first_article-r {
+        height: 60px;
+        flex: 3;
+
+        &--btn {
+          //button($size, $tx-color, $bg, $display, $border-raduis)
+          @include button(sm, $text-white, $bg-primary, inline-block, 5px);
+          display: flex;
+          align-items: center;
+        }
+
+        &--select {
+          display: flex;
+          width: 150px;
+          outline: none;
+          border: none;
+          padding: 6px 4px;
+          border-bottom: 2px solid $text-black;
+          background: transparent;
+        }
+      }
+
+      &--left-title {
+        font-size: 38px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 3em;
+      }
+
+      &--right-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      &--right-title-end {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &__first_news-l {
+        height: 400px;
+        flex: 1;
+        background-color: rgb(190, 143, 235);
+        margin-right: 10px;
+      }
+
+      &__first_news-r {
+        height: 400px;
+        flex: 1;
+        background-color: rgb(190, 143, 235);
+        margin-left: 10px;
+      }
+
+      &__second_news {
+        height: 300px;
+        flex: 1;
+        padding: 3px;
+        margin: 1%;
+        background-color: rgb(190, 143, 235);
+      }
+    }
+  }
+}
+
+.footer-msg-red {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #d32f2f;
+  color: white;
+  text-align: center;
+  height: 45px;
+}
+
+.footer-msg-green {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #388e3c;
+  color: white;
+  text-align: center;
+  height: 45px;
+}
+
+///////DIV OVERLAY/////
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container img {
+  vertical-align: middle;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(9, 53, 120, 0.8); /* Background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 96%;
+  padding: 0 2%;
+}
+
+///////END DIV OVERLAY/////
+
+.link-item {
+  color: $bg-white;
+  text-decoration: none;
 }

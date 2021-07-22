@@ -30,6 +30,7 @@
 
     &__content {
       &__btn {
+        //button($size, $tx-color, $bg, $display, $border-raduis)
         @include button(md, white, red, inline-block, 0);
       }
     }
