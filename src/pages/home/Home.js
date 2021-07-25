@@ -5,6 +5,7 @@ import { TopNews } from '../../components/topNews'
 import { TopMenu } from '../../components/topMenu'
 import TopThreeNews from '../../components/topThreeNews/TopThreeNews'
 import '../../styles/css/Home.css'
+import Loader from '../../sharedComponents/loader/Loader'
 
 const Home = () => {
   const [news, setNews] = useState([])
@@ -28,7 +29,9 @@ const Home = () => {
     fetchData()
   }, [])
 
-  return (
+  return news.length === 0 ? (
+    <Loader />
+  ) : (
     <div className='g-container'>
       <Helmet>
         <meta charSet='utf-8' />
@@ -37,11 +40,11 @@ const Home = () => {
         <meta name='keywords' content='Seven peaks, news, api' />
       </Helmet>
       <TopMenu isBookmark title='Top stories' />
-      <TopNews />
-      <TopThreeNews />
+      <TopNews news={news} />
+      <TopThreeNews news={news.slice(3, 6)} isSubTitle />
       <div>
         <h1 className='g-container__box g-container--box'>Sports</h1>
-        <TopThreeNews />
+        <TopThreeNews news={news.slice(0, 3)} />
       </div>
     </div>
   )

@@ -1,21 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import '../../styles/css/TopNews.css'
 
-const TopNews = () => {
+const TopNews = ({ news }) => {
+  const topBox = news.slice(1, 3)
+  const belowBox = news.slice(3, 5)
   return (
     <div className='top-news'>
       <div className='container top-news-l'>
         <Link to='/article'>
           <img
-            src='https://thumbs.dreamstime.com/b/random-click-waste-bulb-different-angle-random-click-waste-bulb-different-angle-trying-to-give-its-light-back-167178353.jpg'
+            src={news[0].fields.thumbnail}
             alt='Notebook'
             style={{ width: '100%', height: '100%' }}
           />
         </Link>
         <div className='content'>
           <Link to='/article' className='link-item'>
-            <h1>Heading</h1>
+            <h2>{news[0].webTitle}</h2>
             <p>
               Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum
               cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri
@@ -27,52 +30,37 @@ const TopNews = () => {
 
       <div className='top-news-r'>
         <div className='news-box-one'>
-          <div className='container news-box-one__min'>
-            <Link to='/article'>
-              <img
-                src='https://thumbs.dreamstime.com/b/random-click-waste-bulb-different-angle-random-click-waste-bulb-different-angle-trying-to-give-its-light-back-167178353.jpg'
-                alt='Notebook'
-                style={{ width: '100%', height: '100%' }}
-              />
-            </Link>
-            <div className='content'>
-              <Link to='/article' className='link-item'>
-                <p>
-                  Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo,
-                  eum cu recteque expetendis neglegentur.
-                </p>
+          {topBox.map(article => (
+            <div key={article.id} className='container news-box-one__min'>
+              <Link to='/article'>
+                <img
+                  src={article?.fields?.thumbnail}
+                  alt='Notebook'
+                  style={{ width: '100%', height: '100%' }}
+                />
               </Link>
+              <div className='content'>
+                <Link to='/article' className='link-item'>
+                  <p>{article?.webTitle}</p>
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className='container news-box-one__min'>
-            <Link to='/article'>
-              <img
-                src='https://thumbs.dreamstime.com/b/random-click-waste-bulb-different-angle-random-click-waste-bulb-different-angle-trying-to-give-its-light-back-167178353.jpg'
-                alt='Notebook'
-                style={{ width: '100%', height: '100%' }}
-              />
-            </Link>
-            <div className='content'>
-              <Link to='/article' className='link-item'>
-                <p>
-                  Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo,
-                  eum cu recteque expetendis neglegentur.
-                </p>
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
         <div className='news-box-two'>
-          <div className='news-box-two__min'>
-            Spike Lee: Race relations today are a direct response to having a black president
-          </div>
-          <div className='news-box-two__min'>
-            Spanish archaeologist sentenced for faking Basque finds
-          </div>
+          {belowBox.map(article => (
+            <div key={article.id} className='news-box-two__min'>
+              {article.webTitle}
+            </div>
+          ))}
         </div>
       </div>
     </div>
   )
+}
+
+TopNews.propTypes = {
+  news: PropTypes.array
 }
 
 export default TopNews
