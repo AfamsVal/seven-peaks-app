@@ -11,7 +11,7 @@ const TopThreeNews = ({ news, isSubTitle }) => {
           <Link to={`/article/${article.id}`}>
             <img
               src={article?.fields?.thumbnail}
-              alt='Notebook'
+              alt={article?.webTitle}
               style={{ width: '100%', height: '100%' }}
             />
           </Link>

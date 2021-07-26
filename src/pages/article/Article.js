@@ -29,11 +29,11 @@ const Article = () => {
     }
   }
 
-  useEffect(() => console.log('single News', news), [news])
-
   useEffect(() => {
     fetchData()
   }, [])
+
+  // Bookmark a news
   const bookmarked = type => {
     setSaved(type)
     setVisible(true)
@@ -50,6 +50,7 @@ const Article = () => {
       </Helmet>
       <SubMenu
         date={news.webPublicationDate}
+        path={path}
         bookmarked={type => bookmarked(type)}
         title='All bookmark'
       />

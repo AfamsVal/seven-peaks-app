@@ -12,7 +12,7 @@ const TopNews = ({ news }) => {
         <Link to={`/article/${news[0].id}`}>
           <img
             src={news[0].fields.thumbnail}
-            alt='Notebook'
+            alt={news[0]?.webTitle}
             style={{ width: '100%', height: '100%' }}
           />
         </Link>
@@ -39,7 +39,7 @@ const TopNews = ({ news }) => {
               <Link to={`/article/${article.id}`}>
                 <img
                   src={article?.fields?.thumbnail}
-                  alt='Notebook'
+                  alt={article?.webTitle}
                   style={{ width: '100%', height: '100%' }}
                 />
               </Link>
