@@ -41,6 +41,7 @@
   &__min {
     background-color: cadetblue;
     border-bottom: 3px solid orange;
+    // font-size: 20px;
   }
 }
 
@@ -53,7 +54,7 @@
     background-color: $bg-primary;
     color: $text-white;
     padding: 6px;
-    font-size: 1.3em;
+    font-size: 1.1em;
     line-height: 33px;
     font-weight: bold;
     border-bottom: 3px solid rgb(75, 210, 214);

@@ -16,7 +16,8 @@ const Routes = () => {
         <NavBar />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/article' component={Article} />
+          <Route exact path='/article/:a/:b/:c/:d/:e/:slug' component={Article} />
+          <Route exact path='/article/:a/:b/:c/:d/:slug' component={Article} />
           <Route exact path='/bookmark' component={Bookmark} />
           <Route exact path='/search' component={SearchResult} />
           <Route exact path='*' component={NotFound} />

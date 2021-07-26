@@ -1,13 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
+import axios from 'axios'
 import SubMenu from '../../components/subMenu/SubMenu'
 import '../../styles/css/Article.css'
 import newsImg from '../../images/news.png'
+import { useParams } from 'react-router-dom'
 import FooterMsg from '../../sharedComponents/footerMsg/FooterMsg'
 
 const Article = () => {
+  const { a, b, c, d, e, slug } = useParams()
+  const path = e ? `${a}/${b}/${c}/${d}/${e}/${slug}` : `${a}/${b}/${c}/${d}/${slug}`
+
   const [saved, setSaved] = React.useState(false)
   const [visible, setVisible] = React.useState(false)
+
+  const [news, setNews] = useState({})
+  const fetchData = async () => {
+    try {
+      const {
+        data: { response }
+      } = await axios.get(
+        `https://content.guardianapis.com/${path}?api-key=${process.env.REACT_APP_FB_API_KEY}&show-fields=thumbnail`
+      )
+
+      if (response.status === 'ok') setNews(response.content)
+    } catch (error) {
+      console.log('errro', error)
+    }
+  }
+
+  useEffect(() => console.log('single News', news), [news])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
   const bookmarked = type => {
     setSaved(type)
     setVisible(true)
@@ -19,13 +45,17 @@ const Article = () => {
       <Helmet>
         <meta charSet='utf-8' />
         <title>Seven Peaks - Article</title>
-        <meta name='description' content='Seven peaks news and other related stories' />
+        <meta name='description' content={slug} />
         <meta name='keywords' content='Seven peaks, news, api' />
       </Helmet>
-      <SubMenu bookmarked={type => bookmarked(type)} title='All bookmark' />
+      <SubMenu
+        date={news.webPublicationDate}
+        bookmarked={type => bookmarked(type)}
+        title='All bookmark'
+      />
       <div className='article'>
         <div className='article__left'>
-          <h1>Global report: WHO warns of accelerating Covid-19 infections in Africa</h1>
+          <h1>{news.webTitle}</h1>
           <h3>
             Continent is seeing more cases spread to the provinces; Trump supporters can’t sue over
             catching Covid-19 at rallies; Brazil confirms 30,000 new cases
@@ -66,7 +96,7 @@ const Article = () => {
         <div className='article__right'>
           <div className=''>
             <p>
-              <img src={newsImg} alt='news' width='100%' />
+              <img src={news?.fields?.thumbnail || newsImg} alt='news' width='100%' />
             </p>
             <small>
               A woman walks along a flooded road amidst a storm in the Masiphumelele informal

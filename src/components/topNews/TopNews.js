@@ -9,7 +9,7 @@ const TopNews = ({ news }) => {
   return (
     <div className='top-news'>
       <div className='container top-news-l'>
-        <Link to='/article'>
+        <Link to={`/article/${news[0].id}`}>
           <img
             src={news[0].fields.thumbnail}
             alt='Notebook'
@@ -17,7 +17,11 @@ const TopNews = ({ news }) => {
           />
         </Link>
         <div className='content'>
-          <Link to='/article' className='link-item'>
+          <Link
+            // to={`/article/${news[0].id.split('/')[news[0].id.split('/').length - 1]}`}
+            to={`/article/${news[0].id}`}
+            className='link-item'
+          >
             <h2>{news[0].webTitle}</h2>
             <p>
               Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum
@@ -32,7 +36,7 @@ const TopNews = ({ news }) => {
         <div className='news-box-one'>
           {topBox.map(article => (
             <div key={article.id} className='container news-box-one__min'>
-              <Link to='/article'>
+              <Link to={`/article/${article.id}`}>
                 <img
                   src={article?.fields?.thumbnail}
                   alt='Notebook'
@@ -40,7 +44,7 @@ const TopNews = ({ news }) => {
                 />
               </Link>
               <div className='content'>
-                <Link to='/article' className='link-item'>
+                <Link to={`/article/${article.id}`} className='link-item'>
                   <p>{article?.webTitle}</p>
                 </Link>
               </div>
@@ -50,7 +54,12 @@ const TopNews = ({ news }) => {
         <div className='news-box-two'>
           {belowBox.map(article => (
             <div key={article.id} className='news-box-two__min'>
-              {article.webTitle}
+              <Link
+                style={{ color: '#FFFFFF', textDecoration: 'none' }}
+                to={`/article/${article.id}`}
+              >
+                {article.webTitle}
+              </Link>
             </div>
           ))}
         </div>
