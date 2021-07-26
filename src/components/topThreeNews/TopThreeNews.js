@@ -8,7 +8,7 @@ const TopThreeNews = ({ news, isSubTitle }) => {
     <div className='top-three-news'>
       {news.map(article => (
         <div key={article?.id} className='container top-three-news-r'>
-          <Link to='/article'>
+          <Link to={`/article/${article.id}`}>
             <img
               src={article?.fields?.thumbnail}
               alt='Notebook'
@@ -16,7 +16,7 @@ const TopThreeNews = ({ news, isSubTitle }) => {
             />
           </Link>
           <div className='content'>
-            <Link to='/article' className='link-item'>
+            <Link to={`/article/${article.id}`} className='link-item'>
               <h2>{article.webTitle}</h2>
               {isSubTitle ? (
                 <p>
