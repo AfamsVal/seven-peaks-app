@@ -49,6 +49,7 @@ const Article = () => {
         <meta name='keywords' content='Seven peaks, news, api' />
       </Helmet>
       <SubMenu
+        news={news}
         date={news.webPublicationDate}
         path={path}
         bookmarked={type => bookmarked(type)}

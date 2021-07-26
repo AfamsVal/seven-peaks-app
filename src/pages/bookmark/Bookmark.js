@@ -11,7 +11,7 @@ const Bookmark = () => {
 
   useEffect(() => {
     // eslint-disable-next-line
-    const allBookedmarked = localStorage.getItem('seven-peaks-bookmarked') && JSON.parse(localStorage.getItem('seven-peaks-bookmarked'))
+    const allBookedmarked = localStorage.getItem('seven-peaks-news') && JSON.parse(localStorage.getItem('seven-peaks-news'))
     if (allBookedmarked?.length > 0) {
       setNews(allBookedmarked)
       setLoading(false)
