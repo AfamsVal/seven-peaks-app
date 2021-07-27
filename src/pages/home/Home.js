@@ -23,8 +23,6 @@ const Home = () => {
     }
   }
 
-  useEffect(() => console.log('news', news), [news])
-
   useEffect(() => {
     fetchData()
   }, [])
