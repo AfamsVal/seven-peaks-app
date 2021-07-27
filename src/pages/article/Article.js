@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import axios from 'axios'
 import SubMenu from '../../components/subMenu/SubMenu'
 import '../../styles/css/Article.css'
-import newsImg from '../../images/news.png'
+import newsImg from '../../images/loader.gif'
 import { useParams } from 'react-router-dom'
 import FooterMsg from '../../sharedComponents/footerMsg/FooterMsg'
 

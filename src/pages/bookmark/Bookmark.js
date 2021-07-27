@@ -28,7 +28,7 @@ const Bookmark = () => {
         <meta charSet='utf-8' />
         <title>Seven Peaks - Bookmark</title>
         <meta name='description' content='Seven peaks news and other related stories' />
-        <meta name='keywords' content='Seven peaks, news, api' />
+        <meta name='keywords' content='Seven peaks, news, bookmarked news' />
       </Helmet>
       <TopMenu title='All bookmark' />
       <div className='bookmark'>

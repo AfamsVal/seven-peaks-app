@@ -2,12 +2,15 @@ import React, { useRef, useState, useEffect } from 'react'
 import '../../styles/css/Navbar.css'
 import logo from '../../images/nav/logo.png'
 import { Link, useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import SearchIcon from '../../icons/SearchIcon'
 
-const NavBar = () => {
+const NavBar = ({ searchResult }) => {
   const ref = useRef()
   const { push } = useHistory()
   const [search, setSearch] = useState(false)
+  const [input, setInput] = useState('')
+
   const handleClick = e => {
     if (ref.current && !ref.current.contains(e.target)) {
       setSearch(false)
@@ -21,6 +24,10 @@ const NavBar = () => {
       document.removeEventListener('click', handleClick)
     }
   })
+
+  useEffect(() => {
+    searchResult(input)
+  }, [input])
 
   return (
     <div className='nav'>
@@ -37,6 +44,8 @@ const NavBar = () => {
               className='rounded-l-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none '
               id='search'
               type='text'
+              value={input}
+              onChange={({ target }) => setInput(target.value)}
               placeholder='Search'
               onClick={() => push('/search')}
             />
@@ -48,6 +57,10 @@ const NavBar = () => {
       </div>
     </div>
   )
+}
+
+NavBar.propTypes = {
+  searchResult: PropTypes.func
 }
 
 export default NavBar
